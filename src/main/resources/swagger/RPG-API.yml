@@ -1,0 +1,49 @@
+swagger: "2.0"
+info:
+  title: Sample API
+  description: API description in Markdown.
+  version: 1.0.0
+host: api.example.com
+basePath: /v1
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+  /character:
+    get:
+      summary: Test GET of Character.
+      operationId: getCharacter
+      description: |
+        Optional extended description in Markdown.
+        
+        Test
+      responses:
+        200:
+          description: OK
+    post:
+      summary: Test POST of character.
+      operationId: createCharacter
+      description: |
+        Optional extended description in Markdown.
+      parameters:
+        - name: character
+          required: true
+          in: body
+          schema:
+            $ref: '#/definitions/CharacterResponse'
+      responses:
+        200:
+          description: OK
+definitions:
+  CharacterResponse:
+    type: object
+    properties:
+      name:
+        type: string
+        example: Lytton
+      age:
+        type: integer
+        example: 22
